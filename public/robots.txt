@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wangyifang.com/web/sitemap.xml
+Sitemap: https://wangyifang.com/web/wifi-avatar-lab/sitemap.xml

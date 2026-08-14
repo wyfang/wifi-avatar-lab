@@ -36,7 +36,7 @@ pnpm dev
 
 浏览器打开 [http://localhost:5173](http://localhost:5173)。
 
-线上版本：[https://wangyifang.com/web/](https://wangyifang.com/web/)
+线上版本：[https://wangyifang.com/web/wifi-avatar-lab/](https://wangyifang.com/web/wifi-avatar-lab/)
 
 ### 常用命令
 
@@ -88,7 +88,8 @@ pnpm check
 - 将新项目命名为 **Wi-Fi Avatar Lab（Wi-Fi 头像实验室）**；
 - 建立本 README 与独立的来源、修改记录；
 - 将应用品牌、网页元数据、PWA 信息和源码入口更新为 Wi-Fi Avatar Lab；
-- 配置生产地址 `https://wangyifang.com/web/`，移除仅适用于 Vercel 的统计组件；
+- 配置生产地址 `https://wangyifang.com/web/wifi-avatar-lab/`，移除仅适用于 Vercel 的统计组件；
+- 使用自有头像图片制作并配置 1200×630 社交分享媒体图；
 - 保留上游作者署名，暂未更改头像编辑功能、图标和示例角色素材。
 
 今后的重要修改应继续在本节或 [NOTICE.md](./NOTICE.md) 中注明内容与日期，以满足 AGPL 对修改版本的通知要求。

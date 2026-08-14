@@ -1,178 +1,133 @@
-# Bible Strong Avatar Lab
+# Wi-Fi Avatar Lab
 
-Bible Strong Avatar Lab is a browser-based authoring studio for procedural 2D avatars. It combines 3D-inspired geometry with SVG rendering so you can construct a character, define its neutral appearance, create expressions, compose reusable animations, and export the result without depending on the Studio UI.
+> Wi-Fi 头像实验室：在浏览器中设计会表达、会动的程序化 2D 头像。
 
-Website: [avatars.bible-strong.app](https://avatars.bible-strong.app) · Source: [GitHub](https://github.com/smontlouis/bible-strong-avatar-lab)
+Wi-Fi Avatar Lab 是一个面向二次创作的头像设计工作室。它使用带有 3D 空间感的几何参数与 SVG 渲染，让你能够创建头像、定义中性外观和表情、编排可复用动画，并导出 React、JavaScript、SVG 或 PNG 资源。
 
-The application runs entirely in the browser. Projects are stored locally and can be moved between browsers with JSON export/import; no account or backend is required.
+本项目基于 [Bible Strong Avatar Lab](https://github.com/smontlouis/bible-strong-avatar-lab) 修改。应用名称、站点元数据和源码入口已更换为 Wi-Fi Avatar Lab；现有图标和示例角色仍沿用上游内容，后续会逐步替换为 Wi-Fi 品牌设计。原项目作者、来源和许可证信息见 [版权与来源](#版权与来源) 与 [NOTICE.md](./NOTICE.md)。
 
-## What you can do
+## 主要功能
 
-- Create, rename, duplicate, reorder, and delete avatars.
-- Build a body from a primary facial surface and additional 3D-inspired primitives.
-- Adjust dimensions, roundness, position, local rotation, perspective, colors, and wireframe guides.
-- Edit each eye independently or link their size, proportions, and position.
-- Manipulate the avatar directly on the canvas with translation and rotation controls.
-- Save, duplicate, reorder, and delete reusable expressions.
-- Add temporary body and eye color overrides to an expression.
-- Add subtle ambient movement to the body and eyes.
-- Build animations from expression steps with custom hold times and transitions.
-- Choose loop, play-once, or ping-pong playback and configure automatic blinking.
-- Preview, play, pause, and stop animations inside the Studio.
-- Take SVG or PNG snapshots with transparent, solid, linear-gradient, or radial-gradient backgrounds.
-- Export a standalone React package or a framework-free JavaScript/HTML package.
-- Export and import the complete Studio project as JSON.
-- Use the interface in English, French, or Simplified Chinese.
+- 创建、复制、排序和管理多个程序化头像。
+- 调整脸部与附加几何体的尺寸、圆角、位置、旋转、透视和颜色。
+- 分别或联动编辑双眼，并直接在画布上移动、旋转头像。
+- 保存表情，设置临时颜色覆盖和自然的身体、眼部微动。
+- 用表情序列制作动画，配置停留时间、转场、循环和眨眼。
+- 导出可复用的 React 或原生 JavaScript 组件包。
+- 导出透明或自定义背景的 SVG、PNG 图片。
+- 用 JSON 导入、导出完整工作室项目。
+- 使用英文、法文或简体中文界面。
 
-## How the Studio works
+所有编辑均在浏览器本地完成；项目数据保存在浏览器本地存储中，不需要账号或后端服务。清除网站数据前，请先导出 JSON 备份。
 
-The workspace has a live canvas on the left and an inspector on the right. Start by selecting an avatar, then move through the four main areas:
+## 本地运行
 
-1. **Pose** — inspect a temporary pose or open the avatar editor to change the character's durable body, colors, and neutral eyes.
-2. **Expressions** — create named visual presets. Expression eye values are relative to the avatar's neutral appearance, so the same behavior remains compatible with different body surfaces.
-3. **Animations** — arrange expressions on a timeline, tune step duration and transition style, choose a playback mode, and configure blinking.
-4. **Export** — choose animations to include, download an integration package, configure Photo Mode, or back up the full Studio project.
+### 环境要求
 
-Changes to the Studio document are saved automatically in browser local storage. Unsaved edits inside an avatar, expression, or animation editor can still be cancelled. Use **Export → Studio project** to create a portable JSON backup before clearing browser data or moving to another device.
+- Node.js 22.12 或更高版本
+- pnpm 10.34.5（版本记录在 `package.json` 中）
 
-## Avatars and behavior libraries
-
-An avatar owns its body geometry, colors, and neutral eye appearance. Expressions and animations initially come from the bundled base behavior library.
-
-When an avatar's expressions or animations are edited for the first time, the Studio copies both collections into an avatar-specific behavior library. From that point on, behavior changes affect only that avatar. Duplicating an avatar also duplicates its custom behavior, and transferring an animation includes every expression it references.
-
-This copy-on-write model lets multiple avatars share the defaults without accidental cross-avatar edits while keeping customized characters fully independent.
-
-## Export formats
-
-### React package
-
-The React export is a local ZIP package containing a reusable TypeScript/React avatar component and the selected animations. It is intended for integration into React applications without shipping the Avatar Lab interface.
-
-### JavaScript package
-
-The JavaScript export is a self-contained ZIP project with an ES module, the selected avatar data and animations, and an HTML demo. It can be used without React.
-
-### Photo Mode
-
-Photo Mode exports the currently rendered avatar as SVG or PNG. You can choose the resolution and use a transparent, solid, linear-gradient, or radial-gradient background.
-
-### Studio project
-
-The JSON project file contains the complete current document: avatars, base and avatar-specific behavior libraries, expressions, animations, and playback selection. Importing a project replaces the current local document after confirmation.
-
-## Getting started
-
-### Requirements
-
-- Node.js 22.12 or newer
-- pnpm 10.34 (declared by the repository's `packageManager` field)
-
-### Install and run
+### 安装与启动
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+浏览器打开 [http://localhost:5173](http://localhost:5173)。
 
-## Available commands
+线上版本：[https://wangyifang.com/web/](https://wangyifang.com/web/)
 
-| Command             | Purpose                                                                           |
-| ------------------- | --------------------------------------------------------------------------------- |
-| `pnpm dev`          | Regenerate the standalone engine and start Vite in development mode.              |
-| `pnpm typecheck`    | Run TypeScript in strict, no-emit mode.                                           |
-| `pnpm test`         | Run the Vitest suite once.                                                        |
-| `pnpm test:watch`   | Run Vitest in watch mode.                                                         |
-| `pnpm engine`       | Regenerate the standalone engine used by exported packages.                       |
-| `pnpm engine:check` | Verify that the committed generated engine is current.                            |
-| `pnpm build`        | Regenerate the engine and create a production build in `dist/`.                   |
-| `pnpm preview`      | Serve the production build locally.                                               |
-| `pnpm format`       | Format the repository with Prettier.                                              |
-| `pnpm check`        | Run engine freshness, formatting, type checking, tests, and the production build. |
+### 常用命令
 
-## Validation
+| 命令             | 用途                                     |
+| ---------------- | ---------------------------------------- |
+| `pnpm dev`       | 生成独立运行引擎并启动开发服务器         |
+| `pnpm typecheck` | 执行 TypeScript 严格类型检查             |
+| `pnpm test`      | 运行 Vitest 测试                         |
+| `pnpm build`     | 构建生产版本到 `dist/`                   |
+| `pnpm preview`   | 本地预览生产版本                         |
+| `pnpm check`     | 完整执行生成检查、格式、类型、测试和构建 |
 
-Before opening a pull request, run the complete local check:
+提交代码前建议运行：
 
 ```bash
 pnpm check
 ```
 
-The GitHub Actions workflow runs the same command on every push and pull request.
+## 技术组成
 
-## Production build and deployment
+- React 19 + TypeScript
+- Vite 8
+- SVG 程序化渲染
+- Motion 动画与高频渲染状态
+- Tailwind CSS 4
+- Vitest
 
-Create the static production bundle:
+主要目录：
+
+| 路径                      | 内容                         |
+| ------------------------- | ---------------------------- |
+| `src/app/`                | 应用外壳、公共控件和全局样式 |
+| `src/components/ui/`      | 可复用 UI 基础组件           |
+| `src/features/avatar/`    | 头像、几何、表情和交互逻辑   |
+| `src/features/animation/` | 动画序列与播放逻辑           |
+| `src/features/rendering/` | SVG 场景和画布预览           |
+| `src/features/export/`    | 图片、项目包和独立运行时导出 |
+| `src/features/studio/`    | 工作室界面、状态与本地持久化 |
+| `src/i18n/`               | 英文、法文和简体中文文案     |
+| `docs/adr/`               | 架构决策记录                 |
+
+更改项目文档格式或持久化逻辑前，请先阅读 [CONTEXT.md](./CONTEXT.md)。不要直接编辑 `src/features/export/standaloneEngine.generated.ts`，应运行 `pnpm engine` 重新生成。
+
+## 二次开发状态
+
+2026-08-14 建立 Wi-Fi Avatar Lab：
+
+- 从上游 `main` 分支的提交 `1a341886dce6bc859e29d560123297aad7a125d0` 开始二次开发；
+- 将新项目命名为 **Wi-Fi Avatar Lab（Wi-Fi 头像实验室）**；
+- 建立本 README 与独立的来源、修改记录；
+- 将应用品牌、网页元数据、PWA 信息和源码入口更新为 Wi-Fi Avatar Lab；
+- 配置生产地址 `https://wangyifang.com/web/`，移除仅适用于 Vercel 的统计组件；
+- 保留上游作者署名，暂未更改头像编辑功能、图标和示例角色素材。
+
+今后的重要修改应继续在本节或 [NOTICE.md](./NOTICE.md) 中注明内容与日期，以满足 AGPL 对修改版本的通知要求。
+
+## 同步上游
+
+本项目自己的仓库配置为 `origin`，原作者仓库配置为 `upstream`：
 
 ```bash
-pnpm build
+git push -u origin main
 ```
 
-The deployable site is written to `dist/`. Serve it locally before publishing:
+需要获取上游更新时：
 
 ```bash
-pnpm preview
+git fetch upstream
+git merge upstream/main
 ```
 
-The application is a client-only Vite site with no server runtime or environment variables. The build uses relative asset paths, so the contents of `dist/` can be hosted at a domain root or a subpath, including a GitHub Pages project URL. Any static host that serves `index.html` can deploy it.
+## 版权与来源
 
-Vercel Web Analytics and Speed Insights are integrated in the React entry point. Enable both products in the Vercel project dashboard, then redeploy so their collection routes become available.
+- 上游项目：**Bible Strong Avatar Lab**
+- 原作者：**Stéphane Montlouis-Calixte**
+- 上游源码：[smontlouis/bible-strong-avatar-lab](https://github.com/smontlouis/bible-strong-avatar-lab)
+- 上游网站：[avatars.bible-strong.app](https://avatars.bible-strong.app)
 
-## Technical overview
+Wi-Fi Avatar Lab 是上游项目的修改版本，不代表原作者或与原作者存在官方合作关系。原项目及本修改版本均依据 [GNU Affero General Public License v3.0 only](./LICENSE) 发布。
 
-- **React 19** coordinates the editor UI and durable application state.
-- **TypeScript** is configured in strict mode.
-- **Vite 8** provides the development server and production build.
-- **Motion** owns high-frequency rendering and playback values.
-- **SVG** renders the procedural avatar geometry.
-- **Tailwind CSS 4** and reusable components under `src/components/ui/` provide the interface layer.
-- **Vitest** covers geometry, playback, editing, persistence, rendering, and export behavior.
+### 上传 GitHub 与部署时必须遵守
 
-Geometry, playback, document operations, and the standalone runtime remain framework-independent. React state stores durable editor data; Motion values handle frame-by-frame visual updates without forcing React renders.
+- 保留完整的 `LICENSE`、原作者署名、版权和许可证通知。
+- 明确说明项目已经修改，并记录重要修改内容和日期。
+- 整个衍生项目继续采用 `AGPL-3.0-only`，不能改成闭源许可证或仅使用更宽松许可证。
+- 分发构建产物时，同时以机器可读形式提供生成、安装、运行和修改所需的对应源码。
+- 如果把修改版本部署为网站，必须在界面中给所有网络用户提供醒目的免费源码入口，并确保链接指向与线上版本一致的源码。
+- 不要把上游作者的名称、网站、图标或示例素材表述成自己的原创或官方背书；替换素材时，只使用自己拥有权利或许可证兼容的内容。
+- 保留第三方依赖的许可证与必要通知；新增字体、图片、音频和代码前先确认授权。
+- 软件按“原样”提供，不附带任何明示或默示担保。
 
-## Repository map
+应用内的 “Source” 链接已指向本项目的[公开源码仓库](https://github.com/wyfang/wifi-avatar-lab)。React/JavaScript 导出包中包含程序衍生代码时，也应按 AGPL 要求提供源码。单纯使用工具创作的输出是否受 AGPL 约束，取决于输出本身是否包含受保护的程序代码或素材。
 
-| Path                                     | Responsibility                                                           |
-| ---------------------------------------- | ------------------------------------------------------------------------ |
-| `src/app/`                               | Application shell, shared controls, utilities, and global styles.        |
-| `src/components/ui/`                     | Reusable interface primitives.                                           |
-| `src/features/avatar/`                   | Avatar identity, body, geometry, expressions, manipulation, and tests.   |
-| `src/features/animation/`                | Animation sequences, framework-independent playback, and tests.          |
-| `src/features/rendering/`                | Stable SVG scene, canvas preview, rotation gizmo, and rendering tests.   |
-| `src/features/export/`                   | Packages, snapshots, ZIPs, standalone runtime, and export tests.         |
-| `src/features/studio/`                   | Studio controller, composed views, persistence, bundled data, and tests. |
-| `src/i18n/`                              | Localized interface copy and translation tests.                          |
-| `src/lib/`                               | Small shared utilities without product-domain ownership.                 |
-| `scripts/generate-standalone-engine.mjs` | Standalone-engine generator.                                             |
-| `docs/adr/`                              | Accepted architecture decisions.                                         |
-| `legacy/`                                | Self-contained HTML prototypes that preceded the React application.      |
-
-## Persistence and privacy
-
-There is no remote backend in this repository. The complete Studio document and interface language preference are stored in the browser's local storage. Exported files are generated locally in the browser. Clearing site data removes the local project, so JSON export is the recommended backup mechanism.
-
-The current project format is a pre-release schema. Compatibility is maintained with the current schema only unless an explicit migration is introduced.
-
-## Contributing
-
-Keep domain calculations outside React components, preserve the separation between durable React state and high-frequency Motion values, and add focused tests for domain changes. Do not edit `src/features/export/standaloneEngine.generated.ts` directly; run `pnpm engine` after changing its source modules.
-
-English, French, and Simplified Chinese interface copy must stay synchronized across `src/i18n/index.ts` and `src/i18n/zh.ts`.
-
-For the domain vocabulary, invariants, and architecture boundaries, read [CONTEXT.md](./CONTEXT.md).
-
-## License
-
-Bible Strong Avatar Lab is licensed under the [GNU Affero General Public License v3.0](./LICENSE).
-
-You may use, study, modify, and redistribute the project. If you distribute the application or a modified version, you must notably:
-
-- make the corresponding source code available;
-- preserve the copyright and license notices;
-- distribute derivative work under the GNU AGPL v3.0;
-- make the corresponding source available when a modified version is offered to users over a network, including as a hosted web service;
-- document significant changes made to the project.
-
-See the `LICENSE` file for the complete and legally authoritative terms.
+以上是根据仓库当前许可证整理的合规提示，不构成法律意见；完整且具有约束力的条款以 [LICENSE](./LICENSE) 为准。

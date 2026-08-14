@@ -1,6 +1,6 @@
 {
-  "name": "Bible Strong Avatar Lab",
-  "short_name": "Avatar Lab",
+  "name": "Wi-Fi Avatar Lab",
+  "short_name": "Wi-Fi Avatar",
   "description": "A browser-based studio for designing procedural 2D avatars, expressions and reusable animations.",
   "lang": "en",
   "start_url": ".",

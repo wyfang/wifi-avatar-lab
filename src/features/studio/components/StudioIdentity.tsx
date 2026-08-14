@@ -19,18 +19,18 @@ export function StudioIdentity({ className = '', language, setLanguage, t }: Stu
     <div className={`studio-identity ${className}`.trim()}>
       <div className="brand">
         <span className="brand-mark" />
-        Bible Strong <em>Avatar Lab</em>
+        Wi-Fi <em>Avatar Lab</em>
       </div>
       <div className="language-picker">
         <a
           className="source-link"
-          href="https://github.com/smontlouis/bible-strong-avatar-lab"
+          href="https://github.com/wyfang/wifi-avatar-lab"
           target="_blank"
           rel="noreferrer"
-          aria-label="GitHub"
+          aria-label="Source code on GitHub"
         >
           <Code2 aria-hidden="true" />
-          <span>GitHub</span>
+          <span>Source</span>
         </a>
         <span className="identity-divider" aria-hidden="true" />
         <Select

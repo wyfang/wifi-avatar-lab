@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Bible Strong Avatar Lab is a browser-based authoring tool for procedural 2D avatars. It combines
+Wi-Fi Avatar Lab is a browser-based authoring tool for procedural 2D avatars. It combines
 3D-inspired geometry with SVG rendering so creators can build a body from primitives, define a
 neutral face, author expressions and compose reusable animations. Generated packages do not depend
 on the Studio UI.

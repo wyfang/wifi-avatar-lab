@@ -1,15 +1,18 @@
 {
-  "name": "bible-strong-avatar-lab",
+  "name": "wifi-avatar-lab",
   "version": "0.1.0",
-  "description": "A browser-based studio for designing procedural 2D avatars, expressions and reusable animations.",
-  "author": "Stéphane Montlouis-Calixte",
-  "homepage": "https://avatars.bible-strong.app",
+  "description": "Wi-Fi Avatar Lab is a browser-based studio for designing procedural 2D avatars, expressions and reusable animations.",
+  "author": "Wi-Fi Avatar Lab contributors",
+  "contributors": [
+    "Stéphane Montlouis-Calixte (original author)"
+  ],
+  "homepage": "https://wangyifang.com/web/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smontlouis/bible-strong-avatar-lab.git"
+    "url": "git+https://github.com/wyfang/wifi-avatar-lab.git"
   },
   "bugs": {
-    "url": "https://github.com/smontlouis/bible-strong-avatar-lab/issues"
+    "url": "https://github.com/wyfang/wifi-avatar-lab/issues"
   },
   "license": "AGPL-3.0-only",
   "private": true,
@@ -33,8 +36,6 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.31.0",

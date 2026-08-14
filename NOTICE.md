@@ -32,6 +32,7 @@ The upstream author's copyright and license notices remain applicable to the ups
 - Added production metadata for deployment at <https://wangyifang.com/web/wifi-avatar-lab/>.
 - Added a project-provided social sharing image and Open Graph/Twitter metadata.
 - Removed Vercel-specific analytics components for deployment on a standard static web server.
-- Preserved the upstream author attribution; avatar editing behavior and existing visual assets remain unchanged.
+- Removed the upstream social attribution from the main interface while preserving the original author and project origin in this notice, the README, the license, and Git history.
+- Avatar editing behavior and existing visual assets remain unchanged.
 
 Significant future changes should be added here with their relevant dates.

@@ -140,21 +140,6 @@ export function StudioStage({ controller }: { controller: StudioController }) {
           </Tooltip>
         </div>
       </TooltipProvider>
-      <p className="stage-credit">
-        Based on{' '}
-        <a
-          href="https://github.com/smontlouis/bible-strong-avatar-lab"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Bible Strong Avatar Lab
-        </a>{' '}
-        by{' '}
-        <a href="https://x.com/_smontlouis" target="_blank" rel="noreferrer">
-          @_smontlouis
-        </a>
-        .
-      </p>
     </motion.section>
   )
 }

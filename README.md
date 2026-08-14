@@ -90,7 +90,7 @@ pnpm check
 - 将应用品牌、网页元数据、PWA 信息和源码入口更新为 Wi-Fi Avatar Lab；
 - 配置生产地址 `https://wangyifang.com/web/wifi-avatar-lab/`，移除仅适用于 Vercel 的统计组件；
 - 使用自有头像图片制作并配置 1200×630 社交分享媒体图；
-- 保留上游作者署名，暂未更改头像编辑功能、图标和示例角色素材。
+- 在 README、NOTICE 和 Git 历史中保留上游作者署名；主操作界面仅保留本项目源码入口，暂未更改头像编辑功能、图标和示例角色素材。
 
 今后的重要修改应继续在本节或 [NOTICE.md](./NOTICE.md) 中注明内容与日期，以满足 AGPL 对修改版本的通知要求。
 

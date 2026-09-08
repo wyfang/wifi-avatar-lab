@@ -2,7 +2,7 @@
 
 在浏览器中设计程序化 2D 头像、表情与动画，并导出图片或可复用组件。
 
-[在线使用](https://wangyifang.com/web/wifi-avatar-lab/) · [上游项目](https://github.com/smontlouis/bible-strong-avatar-lab)
+[在线使用](https://wangyifang.com/web/wifi-avatar-lab/) · [上游项目](https://github.com/smontlouis/bible-strong-avatar-lab) · [English](./README.en.md)
 
 ## 功能
 
@@ -15,13 +15,21 @@
 
 全部编辑在浏览器本地完成，数据保存在本地存储；清除网站数据前应先导出 JSON。
 
-## 开始
+## 使用
 
 需要 Node.js 22.12+ 与 pnpm 10.34.5：
 
 ```bash
-pnpm install
+corepack enable
+pnpm install --frozen-lockfile
 pnpm dev
+```
+
+生产构建与预览：
+
+```bash
+pnpm build
+pnpm preview
 ```
 
 完整检查：
@@ -32,7 +40,7 @@ pnpm check
 
 不要直接编辑 `src/features/export/standaloneEngine.generated.ts`，应运行 `pnpm engine` 重新生成。
 
-## 来源与修改
+## 说明
 
 本项目基于 Stéphane Montlouis-Calixte 的 [Bible Strong Avatar Lab](https://github.com/smontlouis/bible-strong-avatar-lab)，从上游提交 `1a341886dce6bc859e29d560123297aad7a125d0` 开始二次开发。当前修改包括 Wi-Fi 品牌、简体中文、站点元数据、分享图与独立源码入口；部分图标和示例角色仍来自上游。
 
@@ -40,4 +48,4 @@ pnpm check
 
 ## 版权说明
 
-项目代码依据 [GNU Affero General Public License v3.0 only](./LICENSE) 发布。上游版权归 Stéphane Montlouis-Calixte 及其贡献者所有；个人品牌和素材不在许可范围内。
+项目代码依据 [GNU Affero General Public License v3.0 only](./LICENSE) 发布。上游版权归 Stéphane Montlouis-Calixte 及其贡献者所有；个人品牌和素材不在许可范围内。分发或通过网络提供修改版时，应保留上游署名和修改通知，并提供与运行版本对应的完整源码，详见 [许可范围](./LICENSE_SCOPE.md)。
